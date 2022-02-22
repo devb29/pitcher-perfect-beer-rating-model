@@ -31,8 +31,8 @@ Data was split into train and test sets; 80% train and 20% test. Linear regressi
 
 **Final Model**: Linear regression with feature selection determined by lasso cross-validation
 
-Test R²: 0.35
-RMSE: 0.30
+Test R²: 0.35 <br>
+RMSE: 0.30 <br>
 RME: 0.24
 
 **Tools**
