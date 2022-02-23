@@ -24,9 +24,11 @@ The original dataset used for modeling contains 1260 ratings (target) and 57 fea
 4. A new column was created with the days since the beer has been on the site. This was calculated by subtracting the date the data was scraped from the date the beer was added to the site.
 
 *Models* <br>
+<br>
 Four models were tested: (1) linear regression with all features included, (2) lasso cross-validation with included feature selection, (3) lasso with only the selected features, and (4) linear regression with the selected features.
 
 *Model Evaluation and Selection* <br>
+<br>
 Data was split into train and test sets; 80% train and 20% test. Linear regression with all features included was overfitting on the training data. Training data was then split further to create a validation set for lasso cross-validation modeling; 80% train and 20% validation. This model served a dual purpose, which was both feature selection and model training. The model was not ideal, but it selected important features that were used to test another lasso regression and linear regression. While the linear regression model was overfitting slightly, the RMSE was better than the lasso regression’s RMSE. Ultimately, the scraped data used for modeling was limited and affects the accuracy of model predictions.
 
 **Final Model**: Linear regression with feature selection determined by lasso cross-validation
