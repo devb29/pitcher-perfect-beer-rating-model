@@ -17,16 +17,16 @@ Modeling began with all features included in a linear regression model. The mode
 The original dataset used for modeling contains 1260 ratings (target) and 57 features. Features include: location of brewery, number of ratings and reviews, ABV, style of beer and type of glass it’s served in, and days since the beer was added to the site. Feature selection was used via lasso cross-validation, which resulted in 33 features in the final model.
 
 #### **Algorithms**
-*Feature Engineering*
+*Feature Engineering* <br>
 1. The style of beer from each page was too specific and resulted in too many features. Instead, Beautiful Soup was used to scrape [this page](https://www.ratebeer.com/beerstyles/), which lists each style's general style. General style was used to create dummy variables.
 2. The original location data listed the city, state/region, and country the beer was brewed in. Location was filtered by country only, then dummy variables were created.
 3. Dummy variables were also created to indicate what type of glass the beer was served in.
 4. A new column was created with the days since the beer has been on the site. This was calculated by subtracting the date the data was scraped from the date the beer was added to the site.
 
-*Models*
+*Models* <br>
 Four models were tested: (1) linear regression with all features included, (2) lasso cross-validation with included feature selection, (3) lasso with only the selected features, and (4) linear regression with the selected features.
 
-*Model Evaluation and Selection*
+*Model Evaluation and Selection* <br>
 Data was split into train and test sets; 80% train and 20% test. Linear regression with all features included was overfitting on the training data. Training data was then split further to create a validation set for lasso cross-validation modeling; 80% train and 20% validation. This model served a dual purpose, which was both feature selection and model training. The model was not ideal, but it selected important features that were used to test another lasso regression and linear regression. While the linear regression model was overfitting slightly, the RMSE was better than the lasso regression’s RMSE. Ultimately, the scraped data used for modeling was limited and affects the accuracy of model predictions.
 
 **Final Model**: Linear regression with feature selection determined by lasso cross-validation
